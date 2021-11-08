@@ -1,6 +1,7 @@
 package CydeoDevBatchQuestions.PreparationQuestions.TraverseSpiralArrays;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -26,9 +27,13 @@ public class Main {
 
         System.out.println(Arrays.deepToString(input));
 
-        int[] output = TraverseSpiralArrays.getOneDimensionalArray(input);
+        List<Integer> output = TraverseSpiralArrays.spiralTraverseIterative(input);
 
-        System.out.println(Arrays.toString(output));
+//        List<Integer> output = TraverseSpiralArrays.spiralTraverse(input);
+
+//        int[] output = TraverseSpiralArrays.getOneDimensionalArray(input);
+
+        System.out.println(output);
 
     }
 

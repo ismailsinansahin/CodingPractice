@@ -2,16 +2,22 @@ public class HelloWorld {
 
     public static void main(String[] args) {
 
-        int i = 10;
-        System.out.println(i++);  //10 - print i then increase i 1
-        System.out.println(++i);  //12 - increase i 1 then print i
+        int i = 11;
 
-        int a = 1;
-        int b = 2;
-        System.out.println(++a + b++);
-        //a=2 then use 2 + use 2 then b=3
-        System.out.println(++a + b++ - a--);
-        //a=3 then use 3 + use 3 then b=4 - use 3 then a=2
+        switch (i){
+            case 6:
+                System.out.println("6");
+                break;
+            case 7:
+                System.out.println("7");
+                break;
+            case 8:
+                System.out.println("8");
+                break;
+            default:
+                System.out.println("not found!");
+                break;
+        }
 
     }
 

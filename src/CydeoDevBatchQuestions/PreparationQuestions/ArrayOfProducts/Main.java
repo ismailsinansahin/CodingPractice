@@ -8,7 +8,7 @@ public class Main {
 
         int[] array = {5, 1, 4, 2};
 
-        System.out.println(Arrays.toString(ArrayOfProducts.getArrayOfProducts(array)));
+        System.out.println(Arrays.toString(ArrayOfProducts.getArrayOfProducts1(array)));
 
     }
 
