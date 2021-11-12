@@ -4,21 +4,6 @@ import java.util.*;
 
 public class ThreeNumberSum {
 
-    public static List<List<Integer>> threeNumberSumN3(int[] array, int targetSum){
-        List<List<Integer>> output = new ArrayList<>();
-        Arrays.sort(array);
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i+1; j < array.length; j++) {
-                for (int k = j+1; k < array.length; k++) {
-                    if(array[i] + array[j] + array[k] == targetSum){
-                        output.add(Arrays.asList(array[i], array[j], array[k]));
-                    }
-                }
-            }
-        }
-        return output;
-    }
-
     public static List<List<Integer>> threeNumberSumN(int[] array, int targetSum) {
         Arrays.sort(array);
         List<List<Integer>> output = new ArrayList<>();
@@ -34,6 +19,21 @@ public class ThreeNumberSum {
                 }
                 else if (currentSum < targetSum) left++;
                 else right--;
+            }
+        }
+        return output;
+    }
+
+    public static List<List<Integer>> threeNumberSumN3(int[] array, int targetSum){
+        List<List<Integer>> output = new ArrayList<>();
+        Arrays.sort(array);
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i+1; j < array.length; j++) {
+                for (int k = j+1; k < array.length; k++) {
+                    if(array[i] + array[j] + array[k] == targetSum){
+                        output.add(Arrays.asList(array[i], array[j], array[k]));
+                    }
+                }
             }
         }
         return output;
