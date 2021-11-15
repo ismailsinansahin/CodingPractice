@@ -17,6 +17,9 @@ public class SmallestDifference {
 
         for(int i=0 ; i<keysArray.length-1 ; i++){
 
+            // {-1, 5, 10, 15, 17, 20, 26, 28, 134, 135};
+            //   1  1   1  2    2   1   2   1   2    2
+
             int firstElementArray = allNumbersMap.get(Integer.valueOf(keysArray[i].toString()));
             int secondElementArray = allNumbersMap.get(Integer.valueOf(keysArray[i+1].toString()));
             int firstElement = Integer.parseInt(keysArray[i].toString());
@@ -27,6 +30,7 @@ public class SmallestDifference {
                     difference = secondElement - firstElement;
                     output[0] = firstElement;
                     output[1] = secondElement;
+                    if(difference == 0) break;
                 }
             }
         }
@@ -46,6 +50,7 @@ public class SmallestDifference {
                 minDifference = currentDifference;
                 output[0] = array1[current1];
                 output[1] = array2[current2];
+                if(minDifference == 0) break;
             }
             if(current1 == array1.length-1) current2++;
             else if (current2 == array2.length-1) current1++;
@@ -64,6 +69,7 @@ public class SmallestDifference {
                     min = Math.abs(i - j);
                     output[0] = i;
                     output[1] = j;
+                    if(min == 0) break;
                 }
             }
         }
