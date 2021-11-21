@@ -7,6 +7,7 @@ public class LongestPeak {
         int tempLength = 1;
         int max = 0;
         int i = 0;
+
         boolean possiblePeak = false;
         boolean peak = false;
 
@@ -29,6 +30,7 @@ public class LongestPeak {
                     tempLength++;
                 }
             }
+
             else if(descending){
                 if(possiblePeak){ //starting new descending from the peak after climbing
                     possiblePeak = false;
@@ -37,6 +39,7 @@ public class LongestPeak {
                 }
                 else if(peak) tempLength++; //in the descending
             }
+
             else{ //plato
                 if(possiblePeak) {  //plato while climbing
                     possiblePeak = false;
@@ -50,10 +53,15 @@ public class LongestPeak {
                     tempLength++;
                 }
             }
+
             i++;
+
         }
+
         if(tempLength > max)  max = tempLength;
+        if(tempLength == 1) max = 0;
         return max;
+
     }
 
 }
