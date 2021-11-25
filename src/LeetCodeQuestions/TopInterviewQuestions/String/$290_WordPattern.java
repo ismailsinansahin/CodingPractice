@@ -1,46 +1,33 @@
 package LeetCodeQuestions.TopInterviewQuestions.String;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class $290_WordPattern {
 
     public static void main(String[] args) {
-        String pattern = "abc";
-        String s = "b c a";
+        String pattern = "abba";
+        String s = "dog dog dog dog";
         System.out.println("wordPattern(pattern,s) = " + wordPattern(pattern, s));
     }
 
     static boolean wordPattern(String pattern, String s){
+        List<String> wordList = Arrays.asList(s.trim().split(" "));
+        Map<Character, String> wordMap = new HashMap<>();
+        if(wordList.size() != pattern.length()) return false;
 
-        String output = "";
-        String a = "";
-        String b = "";
-        List<String> wordList = Arrays.asList(s.split(" "));
-
-        for(int i=0 ; i<pattern.length()-1 ; i++){
-            if(pattern.charAt(i) == 'a') output += a + " ";
-            else output += b + " ";
+        for(int i=0 ; i<pattern.length() ; i++){
+            if(wordMap.containsKey(pattern.charAt(i)) && !wordMap.get(pattern.charAt(i)).equals(wordList.get(i))) return false;
+            else if(!wordMap.containsKey(pattern.charAt(i)) && wordMap.containsValue(wordList.get(i))) return false;
+            else wordMap.put(pattern.charAt(i), wordList.get(i));
         }
-
-        int indexOfA = pattern.indexOf('a');
-        int indexOfB = pattern.indexOf('b');
-
-        if (indexOfA > -1) a = wordList.get(indexOfA);
-        if (indexOfB > -1) b = wordList.get(indexOfB);
-        if ((indexOfA > -1 || indexOfB > -1) && a.equals(b)) return false;
-
-        for(int i=0 ; i<pattern.length()-1 ; i++){
-            if(pattern.charAt(i) == 'a') output += a + " ";
-            else output += b + " ";
-        }
-        if(pattern.charAt(pattern.length()-1) == 'a') output += a;
-        else output += b;
-        System.out.println("output = " + output);
-
-        if(output.equals(s)) return true;
-        else return  false;
-
+        return true;
     }
 
 }
+
+//                System.out.println("pattern = " + pattern);
+//                System.out.println("wordList = " + wordList);
+//                System.out.println("wordMap = " + wordMap);
