@@ -27,7 +27,3 @@ public class $290_WordPattern {
     }
 
 }
-
-//                System.out.println("pattern = " + pattern);
-//                System.out.println("wordList = " + wordList);
-//                System.out.println("wordMap = " + wordMap);
